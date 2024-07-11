@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/ui/floating-navbar";
+import { BriefcaseBusiness, GlobeLock, House } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,21 +20,25 @@ export default function RootLayout({
     {
       name: "About",
       link: "/",
+      icon:<House />
     },
     {
       name: "Projects",
       link: "/projects",
+      icon:<GlobeLock />
     },
    
     {
       name: "Experiences",
       link: "/experiences",
+      icon:<BriefcaseBusiness />
+
     },
   ];
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex min-h-screen  flex-col items-center bg-[#ffff] justify-between p-24">
+        <main className="flex min-h-screen  flex-col items-center bg-[#ffff] justify-between  pt-24 p-10 10 md:p-24">
           <FloatingNav navItems={navItems} />
         {children}
         </main>

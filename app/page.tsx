@@ -31,9 +31,9 @@ export default function Home() {
         Software
         <FlipWords words={words} /> <br />
       </div>
-      <div className="max-w-5xl mx-auto px-8 relative flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-between">
+      <div className="max-w-5xl mx-auto md:px-8 relative flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-between">
         <div>
-          <p className="text-black text-sm md:text-base max-w-2xl md:leading-loose tracking-wide">
+          <p className="text-black text-sm md:text-base max-w-3xl md:leading-loose tracking-wide">
             Experienced software engineer skilled in full-stack development with
             Java, React.js, Next.js, and FastAPI. Proficient in AWS, Docker,
             Kubernetes, and CI/CD pipelines. Successfully led the development of
