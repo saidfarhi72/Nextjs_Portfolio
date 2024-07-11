@@ -24,10 +24,7 @@ export default function RootLayout({
       name: "Projects",
       link: "/projects",
     },
-    {
-      name: "Educations",
-      link: "/educations",
-    },
+   
     {
       name: "Experiences",
       link: "/experiences",

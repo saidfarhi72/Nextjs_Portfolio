@@ -18,7 +18,7 @@ const ProjectItems = ({
 
 }:ProjectItemsProps) => {
   return (
-    <Link href={link} className="relative group block p-2">
+    <Link href={link} target='_blank' className="relative group block p-2">
       <div className="rounded-2xl overflow-hidden bg-zinc-800 border border-transparent group-hover:border-zinc-700 relative z-50">
         <div className="relative z-50">
           <div className="h-44 sm:h-60 md:h-44 w-full relative transition duration-500 bg-black/10 group-hover:bg-transparent">
