@@ -45,6 +45,10 @@ export const FloatingNav = ({
           className
         )}
       >
+        <a className="font-bold mr-9   text-sm flex items-center justify-center text-black space-x-2" href="/">
+        <img src="profile.jpg"  width={30} height={30} className="transition duration-500  blur-0 scale-100 rounded-full " alt="" />
+        <span className="font-inter font-bold">Tyler Durden</span>
+        </a>
         {navItems.map((navItem: any, idx: number) => (
           <Link
             key={`link=${idx}`}
