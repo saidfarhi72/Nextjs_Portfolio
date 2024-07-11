@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navItems = [
+    {
+      name: "About",
+      link: "/",
+    },
+    {
+      name: "Projects",
+      link: "/projects",
+    },
+    {
+      name: "Educations",
+      link: "/educations",
+    },
+    {
+      name: "Experiences",
+      link: "/experiences",
+    },
+  ];
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="flex min-h-screen  flex-col items-center bg-[#ffff] justify-between p-24">
+          <FloatingNav navItems={navItems} />
+        {children}
+        </main>
+      </body>
     </html>
   );
 }

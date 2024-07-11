@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const FloatingNav = ({
   navItems,
@@ -24,7 +25,9 @@ export const FloatingNav = ({
 
   const [visible, setVisible] = useState(true);
 
+  const pathname = usePathname();
 
+  console.log(pathname);
 
   return (
     <AnimatePresence mode="wait">
@@ -45,26 +48,40 @@ export const FloatingNav = ({
           className
         )}
       >
-        <a className="font-bold mr-9   text-sm flex items-center justify-center text-black space-x-2" href="/">
-        <img src="profile.jpg"  width={30} height={30} className="transition duration-500  blur-0 scale-100 rounded-full " alt="" />
-        <span className="font-inter font-bold">Tyler Durden</span>
+        <a
+          className="font-bold mr-9   text-sm flex items-center justify-center text-black space-x-2"
+          href="/"
+        >
+          <img
+            src="profile.jpg"
+            width={30}
+            height={30}
+            className="transition duration-500  blur-0 scale-100 rounded-full "
+            alt=""
+          />
+          <span className="font-inter font-bold">FARHI Said</span>
         </a>
         {navItems.map((navItem: any, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+              pathname === navItem.link
+                ? "font-bold text-black dark:text-white"
+                : ""
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Dowload CV</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button>
+        <Link href="/resume.pdf" target="_blank" >
+          <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+            <span>Dowload CV</span>
+            <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+          </button>
+        </Link>
       </motion.div>
     </AnimatePresence>
   );
