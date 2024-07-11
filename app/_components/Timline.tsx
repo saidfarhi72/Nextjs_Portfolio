@@ -12,7 +12,7 @@ export default function Timline() {
         supply chain solutions, enhancing efficiency and reliability.
       </p>
       <p className="text-black text-sm md:text-base mt-8 md:leading-loose tracking-wide">
-        Here&aposs a timeline of my professional journey:
+      Here&#39;s a timeline of my professional journey:
       </p>
       <div className="max-w-3xl mx-auto divide-y divide-gray-800 relative">
         <div className="absolute h-full w-[4px] bg-gradient-to-b from-transparent via-green-400 to-transparent -left-4 md:-left-10">
