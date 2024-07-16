@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { BriefcaseBusiness, GlobeLock, House } from "lucide-react";
+import { BriefcaseBusiness, GlobeLock, House, SquareLibrary } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +34,12 @@ export default function RootLayout({
       name: "Experiences",
       link: "/experiences",
       icon:<BriefcaseBusiness />
+
+    },
+    {
+      name: "Blogs",
+      link: "/blogs",
+      icon:<SquareLibrary />
 
     },
   ];
