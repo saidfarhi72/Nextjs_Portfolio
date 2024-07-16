@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex min-h-screen  flex-col items-center bg-[#ffff] justify-between  pt-24 p-10 10 md:p-24">
+        <main className="flex min-h-screen over  flex-col items-center bg-[#ffff] justify-between  pt-24 p-10 10 md:p-24">
           <FloatingNav navItems={navItems} />
         {children}
         </main>

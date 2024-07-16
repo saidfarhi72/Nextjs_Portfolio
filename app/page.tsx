@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="text-4xl mt-8  max-w-5xl px-8 mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+      <div className="text-4xl mt-8  h-full max-w-5xl px-8 mx-auto font-normal text-neutral-600 dark:text-neutral-400">
         Software
         <FlipWords words={words} /> <br />
       </div>
