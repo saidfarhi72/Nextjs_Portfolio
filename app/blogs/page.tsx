@@ -24,7 +24,8 @@ export default function TypewriterEffectSmoothDemo() {
     "https://plausible.io/blog/community-edition?ref=dailydev",
     "https://towardsdev.com/microservice-decomposition-patterns-41f2f24bec90",
     "https://www.thatdot.com/blog/microservice-hell-the-state-of-the-art-in-streaming-services/?ref=dailydev",
-    "https://dzone.com/articles/microservice-architecture-and-agile-teams?ref=dailydev"
+    "https://dzone.com/articles/microservice-architecture-and-agile-teams?ref=dailydev",
+    "https://itnext.io/microservice-how-why-cc40ca95d9f0",
 
     // Add more URLs as needed
   ];
@@ -48,7 +49,7 @@ export default function TypewriterEffectSmoothDemo() {
     };
 
     fetchBlogs();
-  },[]);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center  ">
@@ -70,6 +71,8 @@ export default function TypewriterEffectSmoothDemo() {
             key={index}
           />
         ))}
+        {blogs.length === 0 &&
+          [1,1,1].map((item,index) => <CardDemo.Skeleton key={index} />)}
       </div>
     </div>
   );
