@@ -1,8 +1,10 @@
+"use client"
 import Image from "next/image";
 import Navbar from "./_components/Navbar";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { FlipWords } from "@/components/ui/lip-words";
 import Timline from "./_components/Timline";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const navItems = [
@@ -24,6 +26,13 @@ export default function Home() {
     },
   ];
   const words = ["engineer", "developer"];
+  const [isloading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);  
+
+  if (isloading) return <div></div>;
 
   return (
     <>

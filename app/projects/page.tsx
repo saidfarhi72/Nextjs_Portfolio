@@ -1,6 +1,15 @@
 import React from "react";
 import ProjectItems from "../_components/ProjectItems";
 import { FlipWords } from "@/components/ui/lip-words";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+} from "@/components/ui/animated-modal";
+import ProjectItemsNot from "../_components/ProjectItemsNot";
+import Image from "next/image";
 
 function page() {
   const projects = [
@@ -12,6 +21,8 @@ function page() {
       link: "https://vieo.io/",
       sourceCode: "",
     },
+  ];
+  const projectsNot = [
     {
       title: "MyBot",
       description:
@@ -40,6 +51,37 @@ function page() {
             link={project.link}
             sourceCode={project.sourceCode}
           />
+        ))}
+        {projectsNot.map((project, index) => (
+          <Modal key={index}>
+            <ModalTrigger>
+              <ProjectItemsNot
+                key={index}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                link={project.link}
+                sourceCode={project.sourceCode}
+              />
+            </ModalTrigger>
+            <ModalBody>
+              <ModalContent>
+                <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
+                  Project Not depyed yet
+                </h4>
+                <Image
+                  alt="Tailwind Master Kit"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0  "
+                  src="/NotDeplyed.png"
+                  layout="fill"
+                  quality={75}
+                />
+              </ModalContent>
+            
+            </ModalBody>
+          </Modal>
         ))}
       </div>
     </>
