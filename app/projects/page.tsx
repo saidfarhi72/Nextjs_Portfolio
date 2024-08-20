@@ -18,7 +18,7 @@ function page() {
       description:
         "Vieo is the ultimate task management and whiteboard platform that  allows you to easily collaborate  with your team",
       image: "/vieo.png",
-      link: "https://vieo.io/",
+      link: "https://vieos.vercel.app/",
       sourceCode: "",
     },
   ];
