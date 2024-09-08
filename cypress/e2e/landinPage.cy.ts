@@ -1,8 +1,16 @@
+import { FloatingNav } from "../support/PageObject/floatingNav";
+import { search } from "../support/PageObject/search";
+
 describe('FloatingNav Component', () => {
     beforeEach(() => {
       // Visit the page where the component is mounted
       cy.visit('http://localhost:3000');
     });
+
+    const SearchModel = new search();
+    const floatingNav = new FloatingNav();
+
+
   
     it('should render navigation items correctly', () => {
       const navItems = ['About', 'Projects', 'Blogs', 'Experiences'];
@@ -29,41 +37,47 @@ describe('FloatingNav Component', () => {
       // Verify the modal is no longer visible
     });
   
-    it('should update search results when typing into the search input', () => {
-      // Open the modal
-      cy.get('.search').click(); 
-  
-      cy.get('input[type="text"]').type('React');
-  
-      // Verify the search results are updated
-      cy.contains('React.js').should('be.visible'); // Assuming "React" is part of search results
-  
-      // Type a query that gives no results
-      cy.get('input[type="text"]').clear().type('UnknownTech');
-    });
+
+    it('should open the modal, search for "React", and show results', () => {
+        // Open the search modal
+        SearchModel.openSearchModal();
+    
+        // Type 'React' in the search input
+        SearchModel.typeInSearchInput('React');
+    
+        // Verify the search result is visible
+        SearchModel.checkSearchResultVisible('React.js'); // Assuming 'React' appears in search results
+      });
+ 
   
     it('should submit the search form correctly', () => {
       // Open the modal
-      cy.get('.search').click(); 
-  
-      // Type into the input and submit the form
-      cy.get('input[type="text"]').type('react');
-      cy.get('form').submit();
-  
-      // Verify search results are updated after form submission
-      cy.contains('React.js').should('be.visible');
+      // Open the search modal
+      SearchModel.openSearchModal();
+    
+      // Type 'React' in the search input
+      SearchModel.typeInSearchInput('React');
+      SearchModel.submitSearchForm();
+      // Verify the search result is visible
+      SearchModel.checkSearchResultVisible('React.js'); // Ass
     });
   
     it('should close the modal when clicking outside', () => {
-      // Open the modal
-      cy.get('.search').click(); 
-  
-      // Verify the modal is open
-  
-      // Click outside the modal to close it
-      cy.get('body').click(0, 0);
-  
-      // Verify the modal is closed
+        SearchModel.openSearchModal();
+    
+        
+        SearchModel.closeSearchModal() 
     });
+
+    it('should navigate to the Projects page when clicking on the Projects link', () => {
+        // Click on the "Projects" link
+        floatingNav.clickProjectsLink("Projects");
+    
+        // Verify the URL is correct
+        floatingNav.verifyUrl('/projects'); // Adjust the URL if necessary
+    
+        // Verify the Projects page is visible
+        floatingNav.verifyProjectsPageVisible("Software Solutions");
+      });
   });
   
