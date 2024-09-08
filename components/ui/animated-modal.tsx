@@ -50,7 +50,7 @@ export const ModalTrigger = ({
   return (
     <button
       className={cn(
-        " ",
+        "search ",
         className
       )}
       onClick={() => setOpen(true)}
