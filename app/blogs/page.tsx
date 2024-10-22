@@ -1,6 +1,5 @@
 "use client";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { fetchMediumMetadata } from "@/utils/fetchMetadata";
 import { useEffect, useState } from "react";
 import { CardDemo } from "./_components/blogsCard";
 
@@ -36,20 +35,7 @@ export default function TypewriterEffectSmoothDemo() {
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      console.log("fetching blogs");
-      const fetchedBlogs = await Promise.all(
-        blogUrls.map(async (url) => {
-          const metadata = await fetchMediumMetadata(url);
-          return { ...metadata };
-        })
-      );
-      setBlogs(fetchedBlogs);
-    };
 
-    fetchBlogs();
-  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center  ">
