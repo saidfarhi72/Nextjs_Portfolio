@@ -2,6 +2,7 @@
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { useEffect, useState } from "react";
 import { CardDemo } from "./_components/blogsCard";
+import { CommingSoon } from "@/components/ui/commingSoon";
 
 interface Blog {
   url: string;
@@ -46,19 +47,7 @@ export default function TypewriterEffectSmoothDemo() {
         </p>
       </div>
       <div className="flex justify-center items-start space-x-3 space-y-3 flex-wrap ">
-        <div></div>
-        {blogs.map((blog, index) => (
-          <CardDemo
-            image={blog.image}
-            title={blog.title}
-            url={blog.url}
-            author={blog.author}
-            description={blog.description}
-            key={index}
-          />
-        ))}
-        {blogs.length === 0 &&
-          [1,1,1].map((item,index) => <CardDemo.Skeleton key={index} />)}
+        <CommingSoon />
       </div>
     </div>
   );
